@@ -1,0 +1,40 @@
+
+<mat-drawer-container
+  [class.drawer-opened]="drawer.opened"
+  class="example-container">
+  <mat-drawer #drawer 
+    class="drawer" 
+    mode="side" 
+    opened="true">
+
+    <mat-toolbar class="header">
+      <div>Filter</div>
+      <mat-icon class="close"
+     (click)="drawer.close()">close</mat-icon>
+    </mat-toolbar>
+    
+  </mat-drawer>
+  
+  <mat-toolbar class="main header">
+    <mat-icon
+      *ngIf="!drawer.opened"
+      (click)="drawer.toggle()">
+      menu
+    </mat-icon>
+    <div>Notice</div>
+   
+  </mat-toolbar>
+
+  <div class="main contents">
+    
+    <textarea  matInput formControlName="notice" matTooltip="Notice"  placeholder="--Notice--"></textarea>
+    <div>
+      
+    
+  
+  </div>
+    <div style="height: 1000px">&nbsp;</div>
+  </div>
+
+ 
+</mat-drawer-container>
