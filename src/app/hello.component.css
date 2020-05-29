@@ -27,7 +27,7 @@
 
 .main.contents {
   min-height: 100vh;
-  margin-top: 17%; /*64px; height of header */
+  margin-top: 66px; /*64px; height of header */
   padding: 0;/*16px;*/
 }
 
@@ -37,7 +37,9 @@
   bottom: 0;
   width: 100%;
 }
+ 
 .main.header{
+  color:#fff;
   background-color: #D527B3
 }
 textarea{
@@ -51,6 +53,11 @@ textarea{
     box-shadow: none;
 
     resize: none; /*remove the resize handle on the bottom right*/
+}
+.btnbg
+{
+  height:15px;
+  border:none;
 }
 .btnbg1
 {
