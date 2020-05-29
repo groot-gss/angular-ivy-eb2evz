@@ -32,27 +32,27 @@ export class StickyComponent {
   ) {}
 
   ngOnInit() {
-    this._store.select(getNotes).subscribe((o) => {
-      return (this.noteData = o);
-    });
+    this.getNotes();
     this.notesForm = this.formBuilder.group({
       note: "",
     });
   }
-
+  getNotes() {
+    this._store.select(getNotes).subscribe((o) => {
+      return (this.noteData = o);
+    });
+  }
   addNote(event, cssClass) {
-    console.log(
-      "event,class,noteData",
-      formatDate(new Date(), "yyyy/MM/dd", "en"),
-      cssClass,
-      this.notesString
+    this._store.dispatch(
+      new fromNotes.AddNote(<Note>{
+        ClassName: cssClass,
+        Date: formatDate(new Date(), "yyyy/MM/dd", "en"),
+        Notes: this.notesString,
+        deleted: false,
+        id: this.noteData.length + 1,
+      })
     );
-    var note: any = {};
-    note.ClassName = cssClass;
-    note.Notes = this.notesString;
-    note.Date = formatDate(new Date(), "yyyy/MM/dd", "en");
-    this.noteData.push(note);
-
+    this.getNotes();
     // this.notesString = "";
   }
 }
