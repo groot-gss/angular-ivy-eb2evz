@@ -34,6 +34,16 @@ export const reducer = (
       return toggleNote(state, action);
     case NotesActionTypes.DeleteNote:
       return state.filter((Note) => Note.id != action.payload.id);
+    case NotesActionTypes.UpdateNote:
+      let index = state.map((note) => note.id).indexOf(action.payload.id);
+      return [
+        ...state.slice(0, index),
+        Object.assign({}, state[index], {
+          Notes: [...state[index].Notes, action.payload.Notes],
+          ClassName: [...state[index].ClassName, action.payload.ClassName],
+        }),
+        ...state.slice(index + 1),
+      ];
     default:
       return state;
   }

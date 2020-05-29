@@ -8,6 +8,7 @@ export enum NotesActionTypes {
   AddNoteEffectFailure = "[Note] Add Note Effect Failure",
   ToggleNote = "[Note] Toggle Note",
   DeleteNote = "[Note] Delete Note",
+  UpdateNote = "[Note] Update Note",
 }
 
 let currentId = 1;
@@ -49,10 +50,17 @@ export class DeleteNote implements Action {
   constructor(public payload: { id: number }) {}
 }
 
+export class UpdateNote implements Action {
+  readonly type = NotesActionTypes.UpdateNote;
+
+  constructor(public payload: Note) {}
+}
+
 export type NoteActions =
   | AddNote
   | ToggleNote
   | DeleteNote
   | AddNoteEffect
   | AddNoteEffectSuccess
-  | AddNoteEffectFailure;
+  | AddNoteEffectFailure
+  | UpdateNote;
