@@ -2,13 +2,77 @@
   [class.drawer-opened]="drawer.opened"
   class="example-container"
 >
-  <mat-drawer #drawer class="drawer" mode="side" opened="true">
+  <mat-drawer #drawer class="app-sidenav" mode="side" opened="true">
     <mat-toolbar class="header">
       <div>Filter</div>
       <mat-icon class="close cursorPointer" (click)="drawer.close()"
         >close</mat-icon
       >
     </mat-toolbar>
+    <div>
+      <button
+        md-list-item
+        class="col-md-12 noPadding btnbgSidebar"
+        (click)="sidenav.toggle()"
+      >
+        <mat-icon md-list-icon>done</mat-icon>
+        <span>Show All</span>
+      </button>
+      <br />
+      <button
+        md-list-item
+        class="col-md-12 noPadding btnbgSidebar btnbg1"
+        (click)="sidenav.toggle()"
+      >
+        <mat-icon md-list-icon>done</mat-icon>
+        <span>Select </span>
+      </button>
+      <br />
+      <button
+        md-list-item
+        class="col-md-12 noPadding btnbgSidebar btnbg2"
+        (click)="sidenav.toggle()"
+      >
+        <mat-icon md-list-icon>done</mat-icon>
+        <span>Select </span>
+      </button>
+      <br />
+      <button
+        md-list-item
+        class="col-md-12 noPadding btnbgSidebar btnbg3"
+        (click)="sidenav.toggle()"
+      >
+        <mat-icon md-list-icon>done</mat-icon>
+        <span>Select </span>
+      </button>
+      <br />
+      <button
+        md-list-item
+        class="col-md-12 noPadding btnbgSidebar btnbg4"
+        (click)="sidenav.toggle()"
+      >
+        <mat-icon md-list-icon>done</mat-icon>
+        <span>Select </span>
+      </button>
+      <br />
+      <button
+        md-list-item
+        class="col-md-12 noPadding btnbgSidebar btnbg5"
+        (click)="sidenav.toggle()"
+      >
+        <mat-icon md-list-icon>done</mat-icon>
+        <span>Select </span>
+      </button>
+      <br />
+      <button
+        md-list-item
+        class="col-md-12 noPadding btnbgSidebar btnbg6"
+        (click)="sidenav.toggle()"
+      >
+        <mat-icon md-list-icon>done</mat-icon>
+        <span>Select </span>
+      </button>
+    </div>
   </mat-drawer>
 
   <mat-toolbar class="main header">
@@ -25,16 +89,6 @@
   <div class="main contents">
     <div class="addSticky">
       <form>
-        <!-- <textarea
-          matInput
-          formControlName="note"
-          placeholder="Take a note"
-          [(ngModel)]="notesString"
-            [(ngModel)]="Obj.message"
-          #message='ngModel'
-          matTooltip="Note"
-        ></textarea> -->
-
         <textarea
           matInput
           formControlName="note"
