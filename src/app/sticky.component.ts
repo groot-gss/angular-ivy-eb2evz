@@ -15,7 +15,7 @@ export class StickyComponent {
 
   notesString: string = "";
   constructor(private formBuilder: FormBuilder) {
-    this.initData();
+    // this.initData();
   }
 
   ngOnInit() {
@@ -24,18 +24,18 @@ export class StickyComponent {
       note: "",
     });
   }
-  initData() {
-    var note: any = {};
-    note.className = "btnbg1";
-    note.Notes = "test1";
-    note.Date = formatDate(new Date(), "yyyy/MM/dd", "en");
-    this.noteData.push(note);
+  // initData() {
+  //   var note: any = {};
+  //   note.className = "btnbg1";
+  //   note.Notes = "test1";
+  //   note.Date = formatDate(new Date(), "yyyy/MM/dd", "en");
+  //   this.noteData.push(note);
 
-    note.className = "btnbg2";
-    note.Notes = "test2";
-    note.Date = formatDate(new Date(), "yyyy/MM/dd", "en");
-    this.noteData.push(note);
-  }
+  //   note.className = "btnbg2";
+  //   note.Notes = "test2";
+  //   note.Date = formatDate(new Date(), "yyyy/MM/dd", "en");
+  //   this.noteData.push(note);
+  // }
 
   addNote(event, cssClass) {
     console.log(
@@ -48,7 +48,7 @@ export class StickyComponent {
     note.className = cssClass;
     note.Notes = this.notesString;
     note.Date = formatDate(new Date(), "yyyy/MM/dd", "en");
-    this.noteData.push(note);
+    this.noteData.push(JSON.stringify(note));
 
     // this.notesString = "";
   }
