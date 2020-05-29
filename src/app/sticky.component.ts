@@ -1,7 +1,8 @@
-import { Component, Input } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 //import {MatSidenavModule} from '@angular/material/sidenav';
 import { FormGroup, FormBuilder } from "@angular/forms";
 //import {MatFormFieldModule} from '@angular/material/form-field';
+import { formatDate } from "@angular/common";
 @Component({
   selector: "sticky",
   templateUrl: "./sticky.component.html",
@@ -9,10 +10,13 @@ import { FormGroup, FormBuilder } from "@angular/forms";
 })
 export class StickyComponent {
   showFiller = false;
-  noteData: any = {};
+  noteData: any = [];
   notesForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  notesString: string = "";
+  constructor(private formBuilder: FormBuilder) {
+    this.initData();
+  }
 
   ngOnInit() {
     console.log("sticky");
@@ -20,8 +24,32 @@ export class StickyComponent {
       note: "",
     });
   }
-  valuechange(newValue) {
-    this.noteData["note"] = newValue;
-    console.log(newValue);
+  initData() {
+    var note: any = {};
+    note.className = "btnbg1";
+    note.Notes = "test1";
+    note.Date = formatDate(new Date(), "yyyy/MM/dd", "en");
+    this.noteData.push(note);
+
+    note.className = "btnbg2";
+    note.Notes = "test2";
+    note.Date = formatDate(new Date(), "yyyy/MM/dd", "en");
+    this.noteData.push(note);
+  }
+
+  addNote(event, cssClass) {
+    console.log(
+      "event,class,noteData",
+      formatDate(new Date(), "yyyy/MM/dd", "en"),
+      cssClass,
+      this.notesString
+    );
+    var note: any = {};
+    note.className = cssClass;
+    note.Notes = this.notesString;
+    note.Date = formatDate(new Date(), "yyyy/MM/dd", "en");
+    this.noteData.push(note);
+
+    // this.notesString = "";
   }
 }

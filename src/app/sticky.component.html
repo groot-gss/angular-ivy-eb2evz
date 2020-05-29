@@ -1,49 +1,82 @@
-
 <mat-drawer-container
   [class.drawer-opened]="drawer.opened"
-  class="example-container">
-  <mat-drawer #drawer 
-    class="drawer" 
-    mode="side" 
-    opened="true">
-
+  class="example-container"
+>
+  <mat-drawer #drawer class="drawer" mode="side" opened="true">
     <mat-toolbar class="header">
       <div>Filter</div>
-      <mat-icon class="close cursorPointer"
-     (click)="drawer.close()">close</mat-icon>
+      <mat-icon class="close cursorPointer" (click)="drawer.close()"
+        >close</mat-icon
+      >
     </mat-toolbar>
-    
   </mat-drawer>
-  
+
   <mat-toolbar class="main header">
     <mat-icon
       *ngIf="!drawer.opened"
-      (click)="drawer.toggle()" class="cursorPointer">
+      (click)="drawer.toggle()"
+      class="cursorPointer"
+    >
       menu
     </mat-icon>
     <div>Notice</div>
-   
   </mat-toolbar>
 
   <div class="main contents">
-    
     <div class="addSticky">
-    <textarea  matInput formControlName="note" [(ngModel)]="noteData['note']" matTooltip="Note"  (ngModelChange)="valuechange($event)"   ></textarea>
-    <div class="col-md-12"  >
-<button class="col-md-2 btnbg btnbg1"></button>
-<button class="col-md-2 btnbg btnbg2"></button>
-<button class="col-md-2 btnbg btnbg3"></button>
-<button class="col-md-2 btnbg btnbg4"></button>
-<button class="col-md-2 btnbg btnbg5"></button>
-<button class="col-md-2 btnbg btnbg6"></button>
-    </div> </div>
-    <div class="listSticky"> </div>
-    <div>
-      
-    
-  
-  </div> 
-  </div>
+      <form>
+        <!-- <textarea
+          matInput
+          formControlName="note"
+          placeholder="Take a note"
+          [(ngModel)]="notesString"
+            [(ngModel)]="Obj.message"
+          #message='ngModel'
+          matTooltip="Note"
+        ></textarea> -->
 
- 
+        <textarea
+          matInput
+          formControlName="note"
+          placeholder="Take a note"
+          #textNotes
+          (change)="notesString = textNotes.value"
+          matTooltip="Note"
+          >{{ notesString }}</textarea
+        >
+        <div class="col-md-12">
+          <button
+            class="col-md-2 btnbg btnbg1"
+            (click)="addNote($event, 'btnbg1', newUser)"
+          ></button>
+          <button
+            class="col-md-2 btnbg btnbg2"
+            (click)="addNote($event, 'btnbg2', newUser)"
+          ></button>
+          <button
+            class="col-md-2 btnbg btnbg3"
+            (click)="addNote($event, 'btnbg3', newUser)"
+          ></button>
+          <button
+            class="col-md-2 btnbg btnbg4"
+            (click)="addNote($event, 'btnbg4', newUser)"
+          ></button>
+          <button
+            class="col-md-2 btnbg btnbg5"
+            (click)="addNote($event, 'btnbg5', newUser)"
+          ></button>
+          <button
+            class="col-md-2 btnbg btnbg6"
+            (click)="addNote($event, 'btnbg6', newUser)"
+          ></button>
+        </div>
+      </form>
+    </div>
+    <div class="listSticky">
+      <span *ngFor="let data of noteData">
+        {{ data.id }}
+      </span>
+    </div>
+    <div></div>
+  </div>
 </mat-drawer-container>
