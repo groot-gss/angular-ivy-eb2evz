@@ -28,8 +28,8 @@
   <div class="main contents">
     
     <div class="addSticky">
-    <textarea  matInput formControlName="notice" matTooltip="Notice"   ></textarea>
-    <div class="col-md-12">
+    <textarea  matInput formControlName="note" [(ngModel)]="noteData['note']" matTooltip="Note"  (ngModelChange)="valuechange($event)"   ></textarea>
+    <div class="col-md-12" *ngIf="noteData['note']===''">
 <button class="col-md-2 btnbg btnbg1"></button>
 <button class="col-md-2 btnbg btnbg2"></button>
 <button class="col-md-2 btnbg btnbg3"></button>

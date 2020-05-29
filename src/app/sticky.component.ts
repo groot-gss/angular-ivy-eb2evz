@@ -9,15 +9,19 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 })
 export class StickyComponent  {
  showFiller = false;
- noticeForm: FormGroup;
+  noteData: any = {};
+ notesForm: FormGroup;
   
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.noticeForm = this.formBuilder.group({
-      notice: ['']
+    this.notesForm = this.formBuilder.group({
+      note: ''
      
     })
   }
-
+valuechange(newValue) {
+  this.noteData['note'] = newValue;
+  console.log(newValue)
+}
 }
