@@ -52,3 +52,27 @@ textarea{
 
     resize: none; /*remove the resize handle on the bottom right*/
 }
+.btnbg1
+{
+  background-color: #A8CDF9;
+}
+.btnbg2
+{
+  background-color: #CB95E8;
+}
+.btnbg3
+{
+  background-color: #D9485A;
+}
+.btnbg4
+{
+  background-color: #A2FF9F;
+}
+.btnbg5
+{
+  background-color: #FCFF6F;
+}
+.btnbg6
+{
+  background-color: #7DFFE9;
+}
