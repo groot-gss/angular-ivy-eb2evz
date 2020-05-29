@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
+import { StickyComponent } from './sticky.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -16,7 +16,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     BrowserAnimationsModule,
     FormsModule,MatSidenavModule,MatIconModule,MatToolbarModule,
     MatFormFieldModule,ReactiveFormsModule],
-  declarations: [ AppComponent, HelloComponent ],
+  declarations: [ AppComponent, StickyComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
