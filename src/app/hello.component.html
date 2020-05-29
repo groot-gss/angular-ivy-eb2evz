@@ -9,7 +9,7 @@
 
     <mat-toolbar class="header">
       <div>Filter</div>
-      <mat-icon class="close"
+      <mat-icon class="close cursorPointer"
      (click)="drawer.close()">close</mat-icon>
     </mat-toolbar>
     
@@ -18,7 +18,7 @@
   <mat-toolbar class="main header">
     <mat-icon
       *ngIf="!drawer.opened"
-      (click)="drawer.toggle()">
+      (click)="drawer.toggle()" class="cursorPointer">
       menu
     </mat-icon>
     <div>Notice</div>
@@ -27,6 +27,7 @@
 
   <div class="main contents">
     
+    <div class="addSticky">
     <textarea  matInput formControlName="notice" matTooltip="Notice"   ></textarea>
     <div class="col-md-12">
 <button class="col-md-2 btnbg btnbg1"></button>
@@ -35,13 +36,13 @@
 <button class="col-md-2 btnbg btnbg4"></button>
 <button class="col-md-2 btnbg btnbg5"></button>
 <button class="col-md-2 btnbg btnbg6"></button>
-    </div>
+    </div> </div>
+    <div class="listSticky"> </div>
     <div>
       
     
   
-  </div>
-    <div style="height: 1000px">&nbsp;</div>
+  </div> 
   </div>
 
  

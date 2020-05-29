@@ -58,6 +58,11 @@ textarea{
 {
   height:15px;
   border:none;
+   outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
 }
 .btnbg1
 {
@@ -82,4 +87,14 @@ textarea{
 .btnbg6
 {
   background-color: #7DFFE9;
+}
+.cursorPointer
+{
+  cursor:pointer;
+}
+.addSticky
+{
+width:100;
+border:1px solid #000;
+
 }
