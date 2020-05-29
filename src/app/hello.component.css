@@ -27,8 +27,8 @@
 
 .main.contents {
   min-height: 100vh;
-  margin-top: 64px; /* height of header */
-  padding: 16px;
+  margin-top: 17%; /*64px; height of header */
+  padding: 0;/*16px;*/
 }
 
 .main.footer {
@@ -37,4 +37,18 @@
   bottom: 0;
   width: 100%;
 }
+.main.header{
+  background-color: #D527B3
+}
+textarea{
+  width:100%;
+     border: none;
+    overflow: auto;
+    outline: none;
 
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    resize: none; /*remove the resize handle on the bottom right*/
+}
