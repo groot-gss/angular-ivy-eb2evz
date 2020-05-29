@@ -96,3 +96,15 @@ textarea {
 .noPadding {
   padding: 0;
 }
+.mrginright3px {
+  margin-right: 3px;
+}
+.close-button {
+  float: right;
+  top: -24px;
+  right: -24px;
+  color: #d9485a;
+}
+.mat-dialog-content {
+  display: inline;
+}
