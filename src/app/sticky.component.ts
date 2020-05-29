@@ -13,6 +13,8 @@ import * as fromNotes from "../app/actions/notes/notes.actions";
 import * as fromFilter from "../app/actions/filter/filter.actions";
 import { NotesState, getNotes } from "./store";
 
+//import {MatFormFieldModule} from '@angular/material/form-field';
+import { formatDate } from "@angular/common";
 @Component({
   selector: "sticky",
   templateUrl: "./sticky.component.html",
@@ -24,7 +26,7 @@ export class StickyComponent {
   notesForm: FormGroup;
   currentFilter;
   notes: Observable<Note>;
-
+  notesString: string = "";
   constructor(
     private formBuilder: FormBuilder,
     private _store: Store<NotesState>
@@ -34,13 +36,24 @@ export class StickyComponent {
     this._store.select(getNotes).subscribe((o) => {
       return (this.noteData = o);
     });
-    console.log("this.notes", this.notes);
     this.notesForm = this.formBuilder.group({
       note: "",
     });
   }
-  valuechange(newValue) {
-    this.noteData["note"] = newValue;
-    console.log(newValue);
+
+  addNote(event, cssClass) {
+    console.log(
+      "event,class,noteData",
+      formatDate(new Date(), "yyyy/MM/dd", "en"),
+      cssClass,
+      this.notesString
+    );
+    var note: any = {};
+    note.ClassName = cssClass;
+    note.Notes = this.notesString;
+    note.Date = formatDate(new Date(), "yyyy/MM/dd", "en");
+    this.noteData.push(note);
+
+    // this.notesString = "";
   }
 }
