@@ -10,7 +10,7 @@ export const initialState: Array<Note> = [
     Date: formatDate(new Date(), "yyyy/MM/dd", "en"),
   },
   {
-    id: 1,
+    id: 2,
     Notes: "Sample 2",
     deleted: false,
     ClassName: "btnbg2",

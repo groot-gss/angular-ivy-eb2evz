@@ -17,7 +17,7 @@ export class AddNote implements Action {
   id: number;
 
   constructor(public payload: Note) {
-    payload.id = currentId++;
+    //  payload.id = currentId++;
   }
 }
 
@@ -25,7 +25,7 @@ export class AddNoteEffect implements Action {
   readonly type = NotesActionTypes.AddNoteEffect;
 
   constructor(public payload: Note) {
-    payload.id = currentId++;
+    //payload.id = currentId++;
   }
 }
 
