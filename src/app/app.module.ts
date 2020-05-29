@@ -11,6 +11,10 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { StoreModule } from "@ngrx/store";
+import { reducers } from "./store";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+
 // @NgModule({
 
 //   declarations: [
@@ -27,6 +31,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 @NgModule({
   imports: [
     BrowserModule,
+    StoreModule.forRoot(reducers),
     BrowserAnimationsModule,
     FormsModule,
     MatSidenavModule,
@@ -34,6 +39,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     MatToolbarModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, //  Retains last 25 states
+    }),
   ],
   declarations: [AppComponent, StickyComponent],
   bootstrap: [AppComponent],
