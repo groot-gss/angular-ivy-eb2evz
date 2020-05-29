@@ -44,7 +44,7 @@
           matTooltip="Note"
           >{{ notesString }}</textarea
         >
-        <div class="col-md-12" >
+        <div class="col-md-12">
           <button
             class="col-md-2 btnbg btnbg1"
             (click)="addNote($event, 'btnbg1', newUser)"
@@ -72,9 +72,16 @@
         </div>
       </form>
     </div>
-    <div class="listSticky" >
-      <span *ngFor="let data of noteData">
-        {{ data }}
+    <div class="listSticky noPadding">
+      <span
+        *ngFor="let data of noteData"
+        class="col-md-2 noPadding"
+        [ngClass]="data.ClassName"
+      >
+        <span class="col-md-12">
+          <p>{{ data.Notes }}</p>
+        </span>
+        <span class="col-md-12 stickyDate"> {{ data.Date }}</span>
       </span>
     </div>
     <div></div>

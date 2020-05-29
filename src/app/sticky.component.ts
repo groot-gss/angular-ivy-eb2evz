@@ -45,10 +45,10 @@ export class StickyComponent {
       this.notesString
     );
     var note: any = {};
-    note.className = cssClass;
+    note.ClassName = cssClass;
     note.Notes = this.notesString;
     note.Date = formatDate(new Date(), "yyyy/MM/dd", "en");
-    this.noteData.push(JSON.stringify(note));
+    this.noteData.push(note);
 
     // this.notesString = "";
   }
