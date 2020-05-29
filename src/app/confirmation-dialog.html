@@ -3,9 +3,12 @@
 </button>
 <mat-dialog-content>
   <mat-form-field appearance="none">
-    <textarea #textNotes (change)="message = textNotes.value" matInput>
-{{message}}</textarea
-    >
+    <textarea
+      [value]="message"
+      #textNotes
+      (change)="message = textNotes.value"
+      matInput
+    ></textarea>
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions align="center">

@@ -40,7 +40,7 @@ export const reducer = (
         ...state.slice(0, index),
         Object.assign({}, state[index], {
           Notes: action.payload.Notes,
-          ClassName: [...state[index].ClassName, action.payload.ClassName],
+          ClassName: action.payload.ClassName,
         }),
         ...state.slice(index + 1),
       ];

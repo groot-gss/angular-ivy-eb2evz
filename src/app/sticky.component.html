@@ -24,7 +24,7 @@
 
   <div class="main contents">
     <div class="addSticky">
-      <form>
+      <form [formGroup]="notesForm">
         <!-- <textarea
           matInput
           formControlName="note"
@@ -39,11 +39,11 @@
           matInput
           formControlName="note"
           placeholder="Take a note"
+          [value]="notesString"
           #textNotes
           (change)="notesString = textNotes.value"
           matTooltip="Note"
-          >{{ notesString }}</textarea
-        >
+        ></textarea>
         <div class="col-md-12">
           <button
             class="col-md-2 btnbg btnbg1"
