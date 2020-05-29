@@ -38,9 +38,10 @@
   width: 100%;
 }
 
-.main.header {
+.main.header,
+.mat-toolbar {
   color: #fff;
-  background-color: #d527b3;
+  background-image: linear-gradient(-90deg, #932bd5, #d527b3);
 }
 textarea {
   width: 100%;

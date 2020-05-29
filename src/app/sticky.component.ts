@@ -6,7 +6,6 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { Store, Action, State, select } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
-import { combineReducers, ActionReducer } from "@ngrx/store";
 import { Note } from "../app/actions/notes/notes.model";
 import { BaseError } from "../app/actions/errors/errors.model";
 import * as fromNotes from "../app/actions/notes/notes.actions";
