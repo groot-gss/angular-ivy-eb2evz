@@ -72,11 +72,12 @@
         </div>
       </form>
     </div>
-    <div class="listSticky noPadding">
+    <div class="listSticky noPadding" >
       <span
         *ngFor="let data of noteData"
         class="col-md-2 noPadding"
         [ngClass]="data.ClassName"
+        (click)="editNote(data)"
       >
         <span class="col-md-12">
           <p>{{ data.Notes }}</p>
@@ -86,4 +87,18 @@
     </div>
     <div></div>
   </div>
+  <div class="listSticky noPadding" *ngIf="editvalue != ''">
+  <span
+    *ngFor="let data of editvalue"
+    class="col-md-2 noPadding"
+    [ngClass]="data.ClassName"
+    (click)="editNote(data)"
+  >
+    <span class="col-md-12">
+      <input type="text" value="data.Notes">
+     
+    </span>
+  
+  </span>
+</div>
 </mat-drawer-container>

@@ -2,7 +2,7 @@ import { Component, Input } from "@angular/core";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { MatFormFieldModule } from "@angular/material/form-field";
-
+import { MatDialog } from '@angular/material'
 import { Store, Action, State, select } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
@@ -27,9 +27,11 @@ export class StickyComponent {
   currentFilter;
   notes: Observable<Note>;
   notesString: string = "";
+  editvalue;
   constructor(
     private formBuilder: FormBuilder,
-    private _store: Store<NotesState>
+    private _store: Store<NotesState>,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -55,5 +57,20 @@ export class StickyComponent {
     );
     this.getNotes();
     // this.notesString = "";
+  }
+
+  editNote(notevalue){
+   
+    this._store.select(getNotes).subscribe((o) => {
+      var data = o;
+      this.editvalue=data.filter(o=>o.id==notevalue.id)
+    });
+    // this.dialog.open({
+      
+    // });
+  }
+
+  deleteNote(id){
+    
   }
 }
