@@ -129,7 +129,7 @@
     <div class="listSticky noPadding">
       <span
         *ngFor="let data of noteData"
-        class="col-md-2 noPadding"
+        class="col-md-2 noPadding sticky"
         [ngClass]="data.ClassName"
         (click)="editNote(data)"
       >

@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { FormGroup, FormBuilder } from "@angular/forms";
-
-import { MatDialog } from "@angular/material";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatDialog, MatSnackBar } from "@angular/material";
 import { Store, Action, State, select } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
@@ -32,7 +32,8 @@ export class StickyComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private _store: Store<NotesState>,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -55,15 +56,23 @@ export class StickyComponent implements OnInit {
       });
   }
   addNote(event, cssClass) {
+    let id = this.noteData.length + 1;
     this._store.dispatch(
       new fromNotes.AddNote(<Note>{
         ClassName: cssClass,
         Date: formatDate(new Date(), "yyyy/MM/dd", "en"),
         Notes: this.notesString,
         deleted: false,
-        id: this.noteData.length + 1,
+        id: id,
       })
     );
+    let snackBarRef = this._snackBar.open("Note Added!", "Undo", {
+      duration: 12000,
+    });
+    snackBarRef.onAction().subscribe(() => {
+      this._store.dispatch(new fromNotes.DeleteNote({ id: id }));
+    });
+
     this.getNotes();
   }
 

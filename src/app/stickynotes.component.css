@@ -118,3 +118,8 @@ textarea {
 .mat-dialog-content {
   display: inline;
 }
+.sticky
+{
+  margin-right:10px;
+  border-radius:5px;
+}
