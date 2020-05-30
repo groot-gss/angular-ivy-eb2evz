@@ -2,77 +2,13 @@
   [class.drawer-opened]="drawer.opened"
   class="example-container"
 >
-  <mat-drawer #drawer class="app-sidenav" mode="side" opened="true">
+  <mat-drawer #drawer class="drawer" mode="side" opened="true">
     <mat-toolbar class="header">
       <div>Filter</div>
       <mat-icon class="close cursorPointer" (click)="drawer.close()"
         >close</mat-icon
       >
     </mat-toolbar>
-    <div>
-      <button
-        md-list-item
-        class="col-md-12 noPadding btnbgSidebar"
-        (click)="sidenav.toggle()"
-      >
-        <mat-icon md-list-icon>done</mat-icon>
-        <span>Show All</span>
-      </button>
-      <br />
-      <button
-        md-list-item
-        class="col-md-12 noPadding btnbgSidebar btnbg1"
-        (click)="sidenav.toggle()"
-      >
-        <mat-icon md-list-icon>done</mat-icon>
-        <span>Select </span>
-      </button>
-      <br />
-      <button
-        md-list-item
-        class="col-md-12 noPadding btnbgSidebar btnbg2"
-        (click)="sidenav.toggle()"
-      >
-        <mat-icon md-list-icon>done</mat-icon>
-        <span>Select </span>
-      </button>
-      <br />
-      <button
-        md-list-item
-        class="col-md-12 noPadding btnbgSidebar btnbg3"
-        (click)="sidenav.toggle()"
-      >
-        <mat-icon md-list-icon>done</mat-icon>
-        <span>Select </span>
-      </button>
-      <br />
-      <button
-        md-list-item
-        class="col-md-12 noPadding btnbgSidebar btnbg4"
-        (click)="sidenav.toggle()"
-      >
-        <mat-icon md-list-icon>done</mat-icon>
-        <span>Select </span>
-      </button>
-      <br />
-      <button
-        md-list-item
-        class="col-md-12 noPadding btnbgSidebar btnbg5"
-        (click)="sidenav.toggle()"
-      >
-        <mat-icon md-list-icon>done</mat-icon>
-        <span>Select </span>
-      </button>
-      <br />
-      <button
-        md-list-item
-        class="col-md-12 noPadding btnbgSidebar btnbg6"
-        (click)="sidenav.toggle()"
-      >
-        <mat-icon md-list-icon>done</mat-icon>
-        <span>Select </span>
-      </button>
-    </div>
   </mat-drawer>
 
   <mat-toolbar class="main header">
@@ -83,21 +19,21 @@
     >
       menu
     </mat-icon>
-    <div>Notes</div>
+    <div>Notice</div>
   </mat-toolbar>
 
   <div class="main contents">
     <div class="addSticky">
-      <form>
+      <form [formGroup]="notesForm">
         <textarea
           matInput
           formControlName="note"
           placeholder="Take a note"
+          [value]="notesString"
           #textNotes
           (change)="notesString = textNotes.value"
           matTooltip="Note"
-          >{{ notesString }}</textarea
-        >
+        ></textarea>
         <div class="col-md-12">
           <button
             class="col-md-2 btnbg btnbg1"
@@ -126,7 +62,7 @@
         </div>
       </form>
     </div>
-    <div class="listSticky noPadding" >
+    <div class="listSticky noPadding">
       <span
         *ngFor="let data of noteData"
         class="col-md-2 noPadding"
@@ -141,18 +77,4 @@
     </div>
     <div></div>
   </div>
-  <div class="listSticky noPadding" *ngIf="editvalue != ''">
-  <span
-    *ngFor="let data of editvalue"
-    class="col-md-2 noPadding"
-    [ngClass]="data.ClassName"
-    (click)="editNote(data)"
-  >
-    <span class="col-md-12">
-      <input type="text" value="data.Notes">
-     
-    </span>
-  
-  </span>
-</div>
 </mat-drawer-container>

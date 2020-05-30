@@ -39,8 +39,8 @@ export const reducer = (
       return [
         ...state.slice(0, index),
         Object.assign({}, state[index], {
-          Notes: [...state[index].Notes, action.payload.Notes],
-          ClassName: [...state[index].ClassName, action.payload.ClassName],
+          Notes: action.payload.Notes,
+          ClassName: action.payload.ClassName,
         }),
         ...state.slice(index + 1),
       ];

@@ -2,7 +2,7 @@ import { Component, Input } from "@angular/core";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatDialog } from '@angular/material'
+import { MatDialog } from "@angular/material";
 import { Store, Action, State, select } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
@@ -11,6 +11,7 @@ import { BaseError } from "../app/actions/errors/errors.model";
 import * as fromNotes from "../app/actions/notes/notes.actions";
 import * as fromFilter from "../app/actions/filter/filter.actions";
 import { NotesState, getNotes } from "./store";
+import { ConfirmationDialog } from "./confirmation-dialog.component";
 
 //import {MatFormFieldModule} from '@angular/material/form-field';
 import { formatDate } from "@angular/common";
@@ -55,21 +56,23 @@ export class StickyComponent {
       })
     );
     this.getNotes();
-    // this.notesString = "";
   }
 
-  editNote(notevalue){
-   
-    this._store.select(getNotes).subscribe((o) => {
-      var data = o;
-      this.editvalue=data.filter(o=>o.id==notevalue.id)
+  editNote(notevalue) {
+    var data = this.noteData;
+    this.editvalue = data.find((o) => o.id == notevalue.id);
+    this.openAlertDialog(
+      this.editvalue ? this.editvalue.Notes : "",
+      this.editvalue.id
+    );
+  }
+
+  openAlertDialog(message, id) {
+    this.dialog.open(ConfirmationDialog, {
+      data: {
+        message: message,
+        id: id,
+      },
     });
-    // this.dialog.open({
-      
-    // });
-  }
-
-  deleteNote(id){
-    
   }
 }
