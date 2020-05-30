@@ -2,13 +2,77 @@
   [class.drawer-opened]="drawer.opened"
   class="example-container"
 >
-  <mat-drawer #drawer class="drawer" mode="side" opened="true">
+  <mat-drawer #drawer class="app-sidenav" mode="side" opened="false">
     <mat-toolbar class="header">
       <div>Filter</div>
       <mat-icon class="close cursorPointer" (click)="drawer.close()"
         >close</mat-icon
       >
     </mat-toolbar>
+    <div>
+      <button
+        (click)="filter('')"
+        md-list-item
+        class="col-md-12 noPadding btnbgSidebar"
+      >
+        <mat-icon md-list-icon>done</mat-icon>
+        <span>Show All</span>
+      </button>
+      <br />
+      <button
+        (click)="filter('btnbg1')"
+        md-list-item
+        class="col-md-12 noPadding btnbgSidebar btnbg1"
+      >
+        <mat-icon md-list-icon>done</mat-icon>
+        <span>Select </span>
+      </button>
+      <br />
+      <button
+        (click)="filter('btnbg2')"
+        md-list-item
+        class="col-md-12 noPadding btnbgSidebar btnbg2"
+      >
+        <mat-icon md-list-icon>done</mat-icon>
+        <span>Select </span>
+      </button>
+      <br />
+      <button
+        (click)="filter('btnbg3')"
+        md-list-item
+        class="col-md-12 noPadding btnbgSidebar btnbg3"
+      >
+        <mat-icon md-list-icon>done</mat-icon>
+        <span>Select </span>
+      </button>
+      <br />
+      <button
+        (click)="filter('btnbg4')"
+        md-list-item
+        class="col-md-12 noPadding btnbgSidebar btnbg4"
+      >
+        <mat-icon md-list-icon>done</mat-icon>
+        <span>Select </span>
+      </button>
+      <br />
+      <button
+        (click)="filter('btnbg5')"
+        md-list-item
+        class="col-md-12 noPadding btnbgSidebar btnbg5"
+      >
+        <mat-icon md-list-icon>done</mat-icon>
+        <span>Select </span>
+      </button>
+      <br />
+      <button
+        (click)="filter('btnbg6')"
+        md-list-item
+        class="col-md-12 noPadding btnbgSidebar btnbg6"
+      >
+        <mat-icon md-list-icon>done</mat-icon>
+        <span>Select </span>
+      </button>
+    </div>
   </mat-drawer>
 
   <mat-toolbar class="main header">

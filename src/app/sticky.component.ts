@@ -45,6 +45,14 @@ export class StickyComponent {
       return (this.noteData = o);
     });
   }
+  filter(cssClass) {
+    console.log("cssClass", cssClass);
+    if (cssClass === "") this.getNotes();
+    else
+      this._store.select(getNotes).subscribe((o) => {
+        return (this.noteData = o.filter((o) => o.ClassName == cssClass));
+      });
+  }
   addNote(event, cssClass) {
     this._store.dispatch(
       new fromNotes.AddNote(<Note>{
