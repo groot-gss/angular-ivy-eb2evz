@@ -15,7 +15,7 @@ import { Note } from "./actions/notes/notes.model";
 @Component({
   selector: "confirmation-dialog",
   templateUrl: "confirmation-dialog.html",
-  styleUrls: ["./sticky.component.css"],
+  styleUrls: ["./stickynotes.component.css"],
   encapsulation: ViewEncapsulation.None,
 })
 export class ConfirmationDialog {

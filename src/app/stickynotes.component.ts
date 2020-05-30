@@ -18,8 +18,8 @@ import { selectAllNotes } from "./selectors/notes/index";
 import { formatDate } from "@angular/common";
 @Component({
   selector: "sticky",
-  templateUrl: "./sticky.component.html",
-  styleUrls: ["./sticky.component.css"],
+  templateUrl: "./stickynotes.component.html",
+  styleUrls: ["./stickynotes.component.css"],
 })
 export class StickyComponent implements OnInit {
   showFiller = false;
