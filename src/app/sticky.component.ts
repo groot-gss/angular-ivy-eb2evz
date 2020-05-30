@@ -1,7 +1,7 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { FormGroup, FormBuilder } from "@angular/forms";
-import { MatFormFieldModule } from "@angular/material/form-field";
+
 import { MatDialog } from "@angular/material";
 import { Store, Action, State, select } from "@ngrx/store";
 import { Observable } from "rxjs";
@@ -12,6 +12,7 @@ import * as fromNotes from "../app/actions/notes/notes.actions";
 import * as fromFilter from "../app/actions/filter/filter.actions";
 import { NotesState, getNotes } from "./store";
 import { ConfirmationDialog } from "./confirmation-dialog.component";
+import { selectAllNotes } from "./selectors/notes/index";
 
 //import {MatFormFieldModule} from '@angular/material/form-field';
 import { formatDate } from "@angular/common";
@@ -20,12 +21,12 @@ import { formatDate } from "@angular/common";
   templateUrl: "./sticky.component.html",
   styleUrls: ["./sticky.component.css"],
 })
-export class StickyComponent {
+export class StickyComponent implements OnInit {
   showFiller = false;
   noteData: any = {};
   notesForm: FormGroup;
   currentFilter;
-  notes: Observable<Note>;
+  notes: Observable<Note[]>;
   notesString: string = "";
   editvalue;
   constructor(
@@ -41,8 +42,8 @@ export class StickyComponent {
     });
   }
   getNotes() {
-    this._store.select(getNotes).subscribe((o) => {
-      return (this.noteData = o);
+    this._store.pipe(select(selectAllNotes)).subscribe((o) => {
+      this.noteData = o;
     });
   }
   filter(cssClass) {

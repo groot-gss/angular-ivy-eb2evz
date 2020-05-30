@@ -93,7 +93,7 @@ export class MaterialModule {}
     MatSidenavModule,
     MatIconModule,
     MatToolbarModule,
-    MatFormFieldModule,
+    
     ReactiveFormsModule,
 
     StoreDevtoolsModule.instrument({
