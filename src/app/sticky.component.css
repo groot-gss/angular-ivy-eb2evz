@@ -28,7 +28,7 @@
 .main.contents {
   min-height: 100vh;
   margin-top: 66px; /*64px; height of header */
-  padding: 0;/*16px;*/
+  padding: 0; /*16px;*/
 }
 
 .main.footer {
@@ -37,64 +37,84 @@
   bottom: 0;
   width: 100%;
 }
- 
-.main.header{
-  color:#fff;
-  background-color: #D527B3
-}
-textarea{
-  width:100%;
-     border: none;
-    overflow: auto;
-    outline: none;
 
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
+.main.header,
+.mat-toolbar {
+  color: #fff;
+  background-image: linear-gradient(-90deg, #932bd5, #d527b3);
+}
+textarea {
+  width: 100%;
+  border: none;
+  overflow: auto;
+  outline: none;
+  padding-left: 13px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 
-    resize: none; /*remove the resize handle on the bottom right*/
+  resize: none; /*remove the resize handle on the bottom right*/
 }
-.btnbg
-{
-  height:15px;
-  border:none;
-   outline: none;
+.btnbg {
+  height: 15px;
+  border: none;
+  outline: none;
 
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
-.btnbg1
-{
-  background-color: #A8CDF9;
+.btnbgSidebar {
+  /* height: 15px; */
+  border: none;
+  outline: none;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
-.btnbg2
-{
-  background-color: #CB95E8;
+.btnbg1 {
+  background-color: #a8cdf9;
 }
-.btnbg3
-{
-  background-color: #D9485A;
+.btnbg2 {
+  background-color: #cb95e8;
 }
-.btnbg4
-{
-  background-color: #A2FF9F;
+.btnbg3 {
+  background-color: #d9485a;
 }
-.btnbg5
-{
-  background-color: #FCFF6F;
+.btnbg4 {
+  background-color: #a2ff9f;
 }
-.btnbg6
-{
-  background-color: #7DFFE9;
+.btnbg5 {
+  background-color: #fcff6f;
 }
-.cursorPointer
-{
-  cursor:pointer;
+.btnbg6 {
+  background-color: #7dffe9;
 }
-.addSticky
-{
-width:100;
-border:1px solid #000;
-padding-bottom:2%;
+.cursorPointer {
+  cursor: pointer;
+}
+.addSticky {
+  border: 1px solid #000;
+  padding-bottom: 2%;
+}
+.stickyDate {
+  text-align: right;
+  padding: 0;
+  font-size: 80%;
+}
+.noPadding {
+  padding: 0;
+}
+.mrginright3px {
+  margin-right: 3px;
+}
+.close-button {
+  float: right;
+  top: -24px;
+  right: -24px;
+  color: #d9485a;
+}
+.mat-dialog-content {
+  display: inline;
 }
