@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { StoreModule } from "@ngrx/store";
 import { reducers } from "./store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { NgxPowerBiModule, NgxPowerBiService } from "ngx-powerbi";
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -99,9 +100,11 @@ export class MaterialModule {}
     StoreDevtoolsModule.instrument({
       maxAge: 25, //  Retains last 25 states
     }),
+    NgxPowerBiModule,
   ],
   declarations: [AppComponent, StickyComponent, ConfirmationDialog],
   entryComponents: [ConfirmationDialog],
   bootstrap: [AppComponent],
+  providers: [NgxPowerBiService],
 })
 export class AppModule {}
